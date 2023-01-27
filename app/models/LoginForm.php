@@ -1,7 +1,7 @@
 <?php
 /** created by : kingston-5 @ 18/01/23 **/
 
-namespace kingstonenterprises\application\models;
+namespace kingstonenterprises\app\models;
 
 use kingstonenterprises\core\Application;
 use kingstonenterprises\core\Model;

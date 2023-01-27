@@ -1,14 +1,14 @@
 <?php
 /** created by : kingston-5 @ 17/01/23 **/
 
-namespace kingstonenterprises\application\controllers;
+namespace kingstonenterprises\app\controllers;
 
 use kingstonenterprises\core\Application;
 use kingstonenterprises\core\Controller;
 use kingstonenterprises\core\Request;
 use kingstonenterprises\core\Response;
 
-use kingstonenterprises\application\models\User;
+use kingstonenterprises\app\models\User;
 
 class DashboardController extends Controller
 {

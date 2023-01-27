@@ -1,7 +1,7 @@
 <?php
 /** created by : kingston-5 @ 7/01/23 **/ 
 
-namespace kingstonenterprises\application\controllers;
+namespace kingstonenterprises\app\controllers;
 
 use kingstonenterprises\core\Application;
 use kingstonenterprises\core\Controller;
@@ -9,7 +9,7 @@ use kingstonenterprises\core\Request;
 use kingstonenterprises\core\Response;
 
 use kingstonenterprises\models\Visitor;
-use kingstonenterprises\application\models\Message;
+use kingstonenterprises\app\models\Message;
 
 
 /** SiteController class

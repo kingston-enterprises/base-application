@@ -3,10 +3,10 @@
 
 namespace kingstonenterprises\core;
 
-use kingstonenterprises\application\models\Visitor;
-use kingstonenterprises\application\models\User;
+use kingstonenterprises\app\models\Visitor;
+use kingstonenterprises\app\models\User;
 
-/** Main application backbone everything starts, ends or goes through here */
+/** Main app backbone everything starts, ends or goes through here */
 class Application {
 	const EVENT_BEFORE_REQUEST = 'beforeRequest';
     const EVENT_AFTER_REQUEST = 'afterRequest';

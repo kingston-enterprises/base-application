@@ -1,8 +1,8 @@
 <?php
 
-use kingstonenterprises\application\controllers\SiteController;
-use kingstonenterprises\application\controllers\AuthController;
-use kingstonenterprises\application\controllers\DashboardController;
+use kingstonenterprises\app\controllers\SiteController;
+use kingstonenterprises\app\controllers\AuthController;
+use kingstonenterprises\app\controllers\DashboardController;
 
 use kingstonenterprises\core\Application;
 

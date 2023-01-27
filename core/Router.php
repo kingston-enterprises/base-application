@@ -100,7 +100,7 @@ class Router {
         }
         if (is_array($callback)) {
             /**
-             * @var $controller \kingstonenterprises\application\Controller
+             * @var $controller \kingstonenterprises\app\Controller
              */
             $controller = new $callback[0];
             $controller->action = $callback[1];
