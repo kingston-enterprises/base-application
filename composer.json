@@ -1,0 +1,16 @@
+{
+    "name": "kingston/base",
+    "autoload": {
+        "psr-4": {
+            "kingstonenterprises\\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "qhawe",
+            "email": "qhawe@kingston-enterprises.net"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"}
+}
