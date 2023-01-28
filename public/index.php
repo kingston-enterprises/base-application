@@ -4,7 +4,7 @@ use kingstonenterprises\app\controllers\SiteController;
 use kingstonenterprises\app\controllers\AuthController;
 use kingstonenterprises\app\controllers\DashboardController;
 
-use kingstonenterprises\core\Application;
+use kingston\icarus\Application;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

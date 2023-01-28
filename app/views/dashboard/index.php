@@ -1,6 +1,6 @@
 <?php
 
-namespace kingstonenterprises\core\form;
+namespace kingston\icarus\form;
 
 $form = new Form();
 ?>

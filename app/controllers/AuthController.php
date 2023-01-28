@@ -3,10 +3,10 @@
 
 namespace kingstonenterprises\app\controllers;
 
-use kingstonenterprises\core\Application;
-use kingstonenterprises\core\Controller;
-use kingstonenterprises\core\Request;
-use kingstonenterprises\core\Response;
+use kingston\icarus\Application;
+use kingston\icarus\Controller;
+use kingston\icarus\Request;
+use kingston\icarus\Response;
 
 use kingstonenterprises\app\models\User;
 use kingstonenterprises\app\models\LoginForm;

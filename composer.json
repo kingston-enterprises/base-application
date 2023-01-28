@@ -2,7 +2,7 @@
     "name": "kingston/base",
     "autoload": {
         "psr-4": {
-            "kingstonenterprises\\\": "./"
+            "kingstonenterprises\\": "./"
         }
     },
     "authors": [
@@ -12,5 +12,6 @@
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "^5.5"}
+        "vlucas/phpdotenv": "^5.5",
+        "kingston/icarus": "dev-master"}
 }

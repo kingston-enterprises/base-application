@@ -1,5 +1,5 @@
 <?php 
-	use kingstonenterprises\core\Application;
+	use kingston\icarus\Application;
 ?>
 <!doctype html>
 <html>

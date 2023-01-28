@@ -3,8 +3,8 @@
 
 namespace kingstonenterprises\app\models;
 
-use kingstonenterprises\core\Application;
-use kingstonenterprises\core\Model;
+use kingston\icarus\Application;
+use kingston\icarus\Model;
 
 abstract class DbModel extends Model
 {

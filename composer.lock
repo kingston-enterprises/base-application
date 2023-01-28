@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "736414846819dcb03ebd80958878cd79",
+    "content-hash": "01ea644d3da80fbcb8bf09559bd1a50c",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -67,6 +67,41 @@
                 }
             ],
             "time": "2022-07-30T15:56:11+00:00"
+        },
+        {
+            "name": "kingston/icarus",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kingston-enterprises/icarus-framework.git",
+                "reference": "f256e6aa210e4ebecad60bb0718d0945ccc82fda"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kingston-enterprises/icarus-framework/zipball/f256e6aa210e4ebecad60bb0718d0945ccc82fda",
+                "reference": "f256e6aa210e4ebecad60bb0718d0945ccc82fda",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "kingston\\icarus\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "qhawe",
+                    "email": "qhawe@kingston-enterprises.net"
+                }
+            ],
+            "description": "Kingston Enterprises in-house php framework",
+            "support": {
+                "issues": "https://github.com/kingston-enterprises/icarus-framework/issues",
+                "source": "https://github.com/kingston-enterprises/icarus-framework/tree/master"
+            },
+            "time": "2023-01-27T23:45:07+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -479,7 +514,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kingston/icarus": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
