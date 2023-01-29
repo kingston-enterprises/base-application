@@ -7,13 +7,13 @@ $form = new Form();
 ?>
 <title><?php echo $title ?></title>
 
-<!-- Contact section -->
-<section id="register" class="container my-24 px-6 mx-auto" aria-label="Register Section">
+<!-- Section: register -->
+<section id="register" class="container my-24 px-6" aria-label="Register Section">
   <div class="mb-32 text-gray-800">
-    <div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%; background-image: url('/img/bg-1.jpg'); height: 300px;">
+    <div class="rounded relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%; background-image: url('/img/icarusPoster.jpg'); height: 300px;">
     </div>
     <div class="container w-full flex justify-center text-gray-800 px-4 md:px-12">
-      <div class="block rounded-lg shadow-lg py-10 md:py-12 px-4 md:px-6" style="margin-top: -100px; background: hsla(0, 0%, 100%, 0.8); backdrop-filter: blur(30px);">
+      <div class="w-8/12 block rounded-lg shadow-lg py-10 md:py-12 px-4 md:px-6" style="margin-top: -100px; background: hsla(0, 0%, 100%, 0.8); backdrop-filter: blur(30px);">
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 mb-12">
         
           
@@ -27,13 +27,7 @@ $form = new Form();
 			<?php echo $form->field($model, 'password')->passwordField() ?>
 			<?php echo $form->field($model, 'passwordConfirm')->passwordField() ?>
 			
-			<button type="submit" class="
-            w-full
-            px-6
-            py-2.5
-            bg-blue-600
-            text-white
-            font-medium
+			<button type="submit" class="block w-full p-3 text-base font-bold bg-blue-600 text-white
             text-xs
             leading-tight
             uppercase
@@ -46,12 +40,14 @@ $form = new Form();
             duration-150
             ease-in-out" aria-label="Contact Section Form Submit Button">Register</button>
 
-            <p class="m-4 text-sm" aria-label="">
+            <div class="text-center">
+			<p class="m-4 text-sm" aria-label="">
             	Already have an acount? 
-            		<a href="/auth/login"
-            			class="inline-block text-blue-500 font-medium text-xs leading-tight underline hover:text-blue-700">
-            			Login Here</a>.
-            	</p>
+				<a href="/auth/login"
+					class="inline-block text-blue-500 font-medium text-xs leading-tight underline hover:text-blue-700">
+					Login Here</a>.
+			</p>
+			</div>
 			
 		<?php Form::end() ?>
         </div>

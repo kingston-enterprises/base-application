@@ -7,7 +7,7 @@
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <link rel="stylesheet" href="/css/tailwind.css" />
 </head>
-<body>
+<body class="bg-blue-200">
   {{content}}
 </body>
 </html>

@@ -32,8 +32,8 @@ $app->router->get('/', [SiteController::class, 'home']);
 $app->router->post('/', [SiteController::class, 'home']);
 
 // Auth controller
-//$app->router->get('/auth/register', [AuthController::class, 'register']);
-//$app->router->post('/auth/register', [AuthController::class, 'register']);
+$app->router->get('/auth/register', [AuthController::class, 'register']);
+$app->router->post('/auth/register', [AuthController::class, 'register']);
 $app->router->get('/auth/login', [AuthController::class, 'login']);
 $app->router->post('/auth/login', [AuthController::class, 'login']);
 $app->router->get('/auth/logout', [AuthController::class, 'logout']);
