@@ -13,5 +13,5 @@
     ],
     "require": {
         "vlucas/phpdotenv": "^5.5",
-        "kingston/icarus": "dev-master"}
+        "kingston/icarus": "^1.3-beta"}
 }

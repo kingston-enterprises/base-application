@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01ea644d3da80fbcb8bf09559bd1a50c",
+    "content-hash": "6183d5a1422fdfd7adbaf0948425c84e",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -70,19 +70,18 @@
         },
         {
             "name": "kingston/icarus",
-            "version": "dev-master",
+            "version": "v1.3-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kingston-enterprises/icarus-framework.git",
-                "reference": "f256e6aa210e4ebecad60bb0718d0945ccc82fda"
+                "reference": "e2e825c3d830982af748ca373224d608b6af7bb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kingston-enterprises/icarus-framework/zipball/f256e6aa210e4ebecad60bb0718d0945ccc82fda",
-                "reference": "f256e6aa210e4ebecad60bb0718d0945ccc82fda",
+                "url": "https://api.github.com/repos/kingston-enterprises/icarus-framework/zipball/e2e825c3d830982af748ca373224d608b6af7bb5",
+                "reference": "e2e825c3d830982af748ca373224d608b6af7bb5",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -99,9 +98,9 @@
             "description": "Kingston Enterprises in-house php framework",
             "support": {
                 "issues": "https://github.com/kingston-enterprises/icarus-framework/issues",
-                "source": "https://github.com/kingston-enterprises/icarus-framework/tree/master"
+                "source": "https://github.com/kingston-enterprises/icarus-framework/tree/v1.3-beta"
             },
-            "time": "2023-01-27T23:45:07+00:00"
+            "time": "2023-01-29T15:23:57+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -515,7 +514,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "kingston/icarus": 20
+        "kingston/icarus": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,
