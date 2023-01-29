@@ -35,7 +35,9 @@
           </div>
         </div>
         <div class="mb-12 lg:mb-0">
-          <img src="https://user-images.githubusercontent.com/67066977/215330853-7be454cf-66ed-4db3-b106-547f7c83bb2d.jpg" class="w-full rounded-lg shadow-lg" alt="Laptop with Code on screen and books on table" aria-label="Landing Area Main Image">
+          <img src="/img/icarusPoster.jpg" class="w-full rounded-lg shadow-lg"
+           alt="Icarus Frame Work Graphic - By Kingston Enterprises"
+            aria-label="Landing Area Main Image">
         </div>
       </div>
     </div>
