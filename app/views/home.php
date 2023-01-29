@@ -2,7 +2,7 @@
 
 <!-- Landing Area -->
 <section id="landing-area" class="h-screen" aria-label="Landing Area">
-  <div class="h-full px-6 py-12 md:px-12 bg-gray-100 text-gray-800 text-center lg:text-left" aria-label="Landing Area Main Section">
+  <div class="h-full px-6 py-12 md:px-12 text-gray-800 text-center lg:text-left" aria-label="Landing Area Main Section">
     <div class="container mx-auto xl:px-32">
       <div class="grid lg:grid-cols-2 gap-12 flex items-center">
         <div class="mt-12 lg:mt-0">
