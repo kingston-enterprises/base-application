@@ -1,11 +1,11 @@
 {
-    "name": "kingston/kingstonenterprises\",
+    "name": "kingston/kingstonenterprises",
     "description": "Custom built web-based system for kingston-enterprises inhouse operations",
     "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "kingstonenterprises\\\": "./"
+            "kingstonenterprises\\": "./"
         }
     },
     "authors": [

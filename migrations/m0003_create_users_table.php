@@ -1,11 +1,11 @@
 <?php
 
-class m0004_create_users_table {
+class m0003_create_users_table {
     public function up()
     {
-        $db = \kingstonenterprises\\core\Application::$app->db;
+        $db = kingston\icarus\Application::$app->db;
         $SQL = "CREATE TABLE IF NOT EXISTS users (
-                id INT AUTO_INCREMENT PRIMARY KEY,
+                 id INT AUTO_INCREMENT PRIMARY KEY,
                 email VARCHAR(255) NOT NULL,
                 firstname VARCHAR(255) NOT NULL,
                 lastname VARCHAR(255) NOT NULL,
@@ -17,7 +17,7 @@ class m0004_create_users_table {
 
     public function down()
     {
-        $db = \kingstonenterprises\\core\Application::$app->db;
+        $db = kingston\icarus\Application::$app->db;
         $SQL = "DROP TABLE IF EXISTS users;";
         $db->pdo->exec($SQL);
     }

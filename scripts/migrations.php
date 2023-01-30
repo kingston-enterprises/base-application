@@ -1,10 +1,11 @@
 <?php
 /** created by : kingston-5 @ 8/01/23 **/
 
-use kingstonenterprises\\core\Application;
+use kingston\icarus\Application;
 
-require_once __DIR__.'/vendor/autoload.php';
-$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+require_once __DIR__.'/../vendor/autoload.php';
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__  . '. /../');
+
 $dotenv->load();
 
 $config = [
