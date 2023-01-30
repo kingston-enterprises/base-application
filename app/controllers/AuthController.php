@@ -19,23 +19,25 @@ class AuthController extends Controller
 	//if user details are valid login user
     public function login(Request $request)
     {
-        $loginForm = new LoginForm();
         $user = new User();
         
         if ($request->getMethod() === 'post') {
-            $loginForm->loadData($request->getBody());
-            if ($loginForm->validate() && $loginForm->login()) {
+            $user->loadData($request->getBody());
+            
+            if ($user->login()) {
             	$user = $user->findOne(['email' => $request->getBody()['email']]); 
-            	
+
+            	Application::$app->session->set('user', $user->id);
                 Application::$app->session->setFlash('success', 'Welcome ' . $user->getDisplayName());
-                Application::$app->response->redirect('/dashboard');
-                return;
+                return $this->render('dashboard/index', [
+                    'title' => 'dasboard'
+                ]);
             }
         }
         
         return $this->render('auth/login', [
         	'title' => 'Login',
-            'model' => $loginForm
+            'model' => $user
         ]);
         
     }
@@ -63,9 +65,11 @@ class AuthController extends Controller
 
     public function logout(Request $request, Response $response)
     {
-        Application::$app->logout();
-        $response->redirect('/');
-	}
+        Application::$app->session->remove('user');
+    
+        Application::$app->$response->redirect('/');
+    }
+	
 
 
 }

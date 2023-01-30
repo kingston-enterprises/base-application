@@ -3,7 +3,7 @@
 
 namespace kingstonenterprises\app\models;
 
-use kingston\icarus\Application;
+use kingstonenterprises\app\controllers\AuthController;
 use kingston\icarus\Model;
 
 class LoginForm extends Model
@@ -39,6 +39,6 @@ class LoginForm extends Model
             return false;
         }
 
-        return Application::$app->login($user);
+        return AuthController::login($user);
     }
 }

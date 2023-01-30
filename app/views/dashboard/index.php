@@ -1,8 +1,8 @@
 <?php
 
-namespace kingston\icarus\form;
+use kingston\icarus\Application;
 
-$form = new Form();
+// var_dump(Application::$app->session->get('user'));exit();
 ?>
 <title><?php echo $title ?></title>
 
