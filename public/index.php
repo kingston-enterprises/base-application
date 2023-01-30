@@ -4,6 +4,8 @@ use kingstonenterprises\app\controllers\SiteController;
 use kingstonenterprises\app\controllers\AuthController;
 use kingstonenterprises\app\controllers\DashboardController;
 
+use kingstonenterprises\app\models\Visitor;
+
 use kingston\icarus\Application;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -21,10 +23,20 @@ $config = [
 
 $app = new Application(dirname(__DIR__), $config);
 
-$app->on(Application::EVENT_BEFORE_REQUEST, function(){
-    // echo "Before request from second installation";
+$app->on(Application::EVENT_BEFORE_REQUEST, function () {
+    $visitor = new Visitor();
+
+    if (!$visitor->findOne(['ip' => $visitor->ip])) {
+        $visitor->ip = $visitor->ip;
+        $visitor->save();
+    }
+
+    $visitor = $visitor->findOne(['ip' => $visitor->ip]);
+    Application::$app->session->set('visitorId', $visitor->id);
 });
 
+
+$app->triggerEvent(Application::EVENT_BEFORE_REQUEST);
 // URL structure : /controller/method/{params}
 
 // Site controller
@@ -42,5 +54,3 @@ $app->router->get('/auth/logout', [AuthController::class, 'logout']);
 // Auth controller
 $app->router->get('/dashboard', [DashboardController::class, 'index']);
 $app->run();
-
-?>

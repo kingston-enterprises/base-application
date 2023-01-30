@@ -8,6 +8,7 @@ class Visitor extends DbModel
     public int $id = 0;
     public string $ip = '';
     public string $datetime = '';
+    public string $agent = '';
 
     public function __construct(){
         $this->setIp();
@@ -20,7 +21,7 @@ class Visitor extends DbModel
 
     public function attributes(): array
     {
-        return ['ip'];
+        return ['ip', 'agent'];
     }
 
     public function labels(): array
@@ -31,7 +32,8 @@ class Visitor extends DbModel
     public function rules()
     {
         return [
-            'ip' => [self::RULE_REQUIRED]
+            'ip' => [self::RULE_REQUIRED],
+            'agent' => [self::RULE_REQUIRED]
             ];
     }
 
@@ -45,15 +47,27 @@ class Visitor extends DbModel
         return 'visitor #'. $this->id . ' ip:' . $this->ip;
     }
     
-    public function setIp() {
-		$ip = $_SERVER['REMOTE_ADDR'];
-	 
-		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    public function setIP() {
+		
+        if (!empty($_SERVER['REMOTE_ADDR'])) {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        } elseif (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 		    $ip = $_SERVER['HTTP_CLIENT_IP'];
 		} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 		    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-		} 
-	 
-		return  $this->ip = $ip;
+		} else {
+            $ip = "0.0.0.0";
+        }
+        
+        try {
+            $this->agent = $_SERVER['HTTP_USER_AGENT'];
+            $this->ip = $ip;
+        } catch (\Exception $e){
+            echo Application::$app->router->renderView('_error', [
+                'exception' => $e,
+            ]);
+        }
+        
+        return;
 	}
 }
