@@ -3,7 +3,7 @@
 
 namespace kingstonenterprises\app\models;
 
-
+use kingston\icarus\DbModel;
 
 /**
 * User class used to represent user entities in the system

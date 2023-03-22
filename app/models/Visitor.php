@@ -3,6 +3,9 @@
 
 namespace kingstonenterprises\app\models;
 
+use kingston\icarus\DbModel;
+
+
 class Visitor extends DbModel
 {
     public int $id = 0;
