@@ -21,15 +21,29 @@ class User extends DbModel
     public string $passwordConfirm = '';
     public string $joined = '';
     
+
+    public function __construct()
+    {
+        $this->setAttributes(
+            ['firstname', 'lastname', 'email', 'password']
+        );
+	// form submission rules
+        $this->setRules(
+            [
+                'firstname' => [self::RULE_REQUIRED],
+                'lastname' => [self::RULE_REQUIRED],
+                'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [
+                    self::RULE_UNIQUE, 'class' => self::class
+                ]],
+                'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
+                'passwordConfirm' => [[self::RULE_MATCH, 'match' => 'password']]
+            ]
+                );
+    }
+
     public static function tableName(): string
     {
         return 'users';
-    }
-
-	// form fields
-    public function attributes(): array
-    {
-        return ['firstname', 'lastname', 'email', 'password'];
     }
 
 	// Form labels
@@ -44,19 +58,6 @@ class User extends DbModel
        ];
     }
 
-	// form submission rules
-    public function rules() : array
-    {
-        return [
-            'firstname' => [self::RULE_REQUIRED],
-            'lastname' => [self::RULE_REQUIRED],
-            'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [
-                self::RULE_UNIQUE, 'class' => self::class
-            ]],
-            'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
-            'passwordConfirm' => [[self::RULE_MATCH, 'match' => 'password']]
-        ];
-    }
 
 	// we need to hash the user password before we save the user to the database
     public function save(): bool
