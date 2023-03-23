@@ -43,4 +43,34 @@ class DashboardController extends Controller
         ]);
 
     }
+
+    public function updateProfile(Request $request)
+    {
+        if (Application::isGuest()) {
+            Application::$app->session->setFlash('warning', 'You need To Login first');
+            Application::$app->response->redirect('/auth/login');
+        }
+
+        $user = new User;
+        $user = $user->findOne(['id' => Application::$app->session->get('user')]);
+
+        if ($request->getMethod() === 'post') {
+            $user->loadData($request->getBody());
+            $user->password = password_hash($user->password, PASSWORD_DEFAULT);
+            // var_dump($user);exit();
+            if ($user->validate() && $user->update($user->id)) {
+                Application::$app->session->setFlash('success', 'Your Details have Been Updated');
+                Application::$app->response->redirect('/dashboard');
+                return 'Show success page';
+            } else {
+                echo "val failed";
+            }
+        }
+
+        return $this->render('dashboard/updateProfile', [
+            'title' => 'Update Profile',
+            'user' => $user,
+            'model' => new User
+        ]);
+    }
 }

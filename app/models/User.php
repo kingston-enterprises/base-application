@@ -1,18 +1,25 @@
 <?php
-/** created by : kingston-5 @ 17/01/23 **/
+/**
+ * @category controllers
+ * @author kingston-5 <qhawe@kingston-enterprises.net>
+ * @license For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace kingstonenterprises\app\models;
 
 use kingston\icarus\DbModel;
 
 /**
-* User class used to represent user entities in the system
-* mainly used to interact with the users table in the database
-* and also create user registration form
-*/
+ * User class used to represent user entities in the system
+ * mainly used to interact with the users table in the database
+ * and also create user registration form
+ * 
+ * @extends \kingston\icarus\DbModel
+ */
 class User extends DbModel
 {
-	// private attributes
+    // private attributes
     public int $id = 0;
     public string $firstname = '';
     public string $lastname = '';
@@ -20,30 +27,36 @@ class User extends DbModel
     public string $password = '';
     public string $passwordConfirm = '';
     public string $joined = '';
-    
 
-    public function __construct()
-    {
-        $this->setAttributes(
-            ['firstname', 'lastname', 'email', 'password']
-        );
-	// form submission rules
-        $this->setRules(
-            [
-                'firstname' => [self::RULE_REQUIRED],
-                'lastname' => [self::RULE_REQUIRED],
-                'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [
-                    self::RULE_UNIQUE, 'class' => self::class
-                ]],
-                'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
-                'passwordConfirm' => [[self::RULE_MATCH, 'match' => 'password']]
-            ]
-                );
-    }
+
+    // public function __construct()
+    // {
+    //     $this->setAttributes(
+    //         ['firstname', 'lastname', 'email', 'password']
+    //     );
+    //     // form submission rules
+    //     $this->setRules(
+    //         [
+    //             'firstname' => [self::RULE_REQUIRED],
+    //             'lastname' => [self::RULE_REQUIRED],
+    //             'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [
+    //                 self::RULE_UNIQUE, 'class' => self::class
+    //             ]],
+    //             'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
+    //             'passwordConfirm' => [[self::RULE_MATCH, 'match' => 'password']]
+    //         ]
+    //     );
+    // }
 
     public static function tableName(): string
     {
         return 'users';
+    }
+
+    // form fields
+    public function attributes(): array
+    {
+        return ['firstname', 'lastname', 'email', 'password'];
     }
 
 	// Form labels
@@ -58,8 +71,22 @@ class User extends DbModel
        ];
     }
 
+	// form submission rules
+    public function rules() : array
+    {
+        return [
+            'firstname' => [self::RULE_REQUIRED],
+            'lastname' => [self::RULE_REQUIRED],
+            'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [
+                self::RULE_UNIQUE, 'class' => self::class
+            ]],
+            'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
+            'passwordConfirm' => [[self::RULE_MATCH, 'match' => 'password']]
+        ];
+    }
 
-	// we need to hash the user password before we save the user to the database
+
+    // we need to hash the user password before we save the user to the database
     public function save(): bool
     {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
@@ -68,17 +95,17 @@ class User extends DbModel
     }
 
     // methods to get attributes    
-    public function getId() : string
+    public function getId(): string
     {
-    	return $this->id;
+        return $this->id;
     }
 
-    
+
     public function getDisplayName(): string
     {
         return $this->firstname . ' ' . $this->lastname;
     }
-    
+
     public function login()
     {
         $user = User::findOne(['email' => $this->email]);
@@ -93,5 +120,4 @@ class User extends DbModel
 
         return true;
     }
-    
 }

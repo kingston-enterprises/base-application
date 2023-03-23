@@ -1,22 +1,33 @@
 <?php
-/** created by : kingston-5 @ 17/01/23 **/
+/**
+ * @category controllers
+ * @author kingston-5 <qhawe@kingston-enterprises.net>
+ * @license For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace kingstonenterprises\app\controllers;
 
 use kingston\icarus\Application;
 use kingston\icarus\Controller;
 use kingston\icarus\Request;
-use kingston\icarus\Response;
 
 use kingstonenterprises\app\models\User;
-use kingstonenterprises\app\models\LoginForm;
 
-/** AuthController class
-* controls the the sites authorisation functions
-*/
+/**
+ * controls the the sites user authorisation functions e.g login, registration and logout
+ *
+ * @extends \kingston\icarus\Controller
+ */
 class AuthController extends Controller
 {
-	//if user details are valid login user
+    /**
+     * render user login page Or if user submitted login form, check 
+     * if user details are valid and login user
+     *
+     * @param Request $request
+     * @return string|void
+     */
     public function login(Request $request)
     {
         $user = new User();
@@ -62,11 +73,12 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout(Request $request, Response $response)
+    public function logout()
     {
         Application::$app->session->remove('user');
     
-        Application::$app->$response->redirect('/');
+        Application::$app->response->redirect('/');
+        
     }
 	
 

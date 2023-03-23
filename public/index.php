@@ -1,9 +1,15 @@
 <?php
+/** 
+ * This file is the root file for the application
+ *
+ * @author kingston-5 <qhawe@kingston-enterprises.net>
+ * @license For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 use kingstonenterprises\app\controllers\SiteController;
 use kingstonenterprises\app\controllers\AuthController;
 use kingstonenterprises\app\controllers\DashboardController;
-
 use kingstonenterprises\app\models\Visitor;
 
 use kingston\icarus\Application;
@@ -13,7 +19,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 $config = [
-    'userClass' => \kingstonenterprises\models\User::class,
     'db' => [
         'dsn' => $_ENV['DB_DSN'],
         'user' => $_ENV['DB_USER'],
@@ -36,7 +41,7 @@ $app->on(Application::EVENT_BEFORE_REQUEST, function () {
 });
 
 
-$app->triggerEvent(Application::EVENT_BEFORE_REQUEST);
+$app->triggerEvent(Application::EVENT_AFTER_REQUEST);
 // URL structure : /controller/method/{params}
 
 // Site controller
@@ -51,6 +56,8 @@ $app->router->post('/auth/login', [AuthController::class, 'login']);
 $app->router->get('/auth/logout', [AuthController::class, 'logout']);
 
 
-// Auth controller
+// Dashboard controller
 $app->router->get('/dashboard', [DashboardController::class, 'index']);
+$app->router->get('/update/profile', [DashboardController::class, 'updateProfile']);
+$app->router->post('/update/profile', [DashboardController::class, 'updateProfile']);
 $app->run();

@@ -1,9 +1,10 @@
 <?php
-/** created by : kingston-5 @ 8/01/23 **/
+/** @author kingston-5 <qhawe@kingston-enterprises.net> **/
 
 namespace kingstonenterprises\app\models;
 
 use kingston\icarus\DbModel;
+use kingston\icarus\Application;
 
 
 class Visitor extends DbModel
