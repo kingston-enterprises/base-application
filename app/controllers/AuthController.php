@@ -29,9 +29,8 @@ class AuthController extends Controller
 
             	Application::$app->session->set('user', $user->id);
                 Application::$app->session->setFlash('success', 'Welcome ' . $user->getDisplayName());
-                return $this->render('dashboard/index', [
-                    'title' => 'dasboard'
-                ]);
+                Application::$app->response->redirect('/dashboard');
+
             }
         }
         
