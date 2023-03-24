@@ -1,6 +1,6 @@
 <?php
 /**
- * @category controllers
+ * @category models
  * @author kingston-5 <qhawe@kingston-enterprises.net>
  * @license For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,13 +19,25 @@ use kingston\icarus\DbModel;
  */
 class User extends DbModel
 {
-    // private attributes
+    /** @var integer id */
     public int $id = 0;
+
+    /** @var string firstname */
     public string $firstname = '';
+
+    /** @var string lastname */
     public string $lastname = '';
+
+    /** @var string email */
     public string $email = '';
+
+    /** @var string password */
     public string $password = '';
+
+    /** @var string password confirmation */
     public string $passwordConfirm = '';
+
+    /** @var string|datetime date joined */
     public string $joined = '';
 
 
@@ -48,18 +60,31 @@ class User extends DbModel
     //     );
     // }
 
+    /**
+     * return database table name
+     *
+     * @return string
+     */
     public static function tableName(): string
     {
         return 'users';
     }
 
-    // form fields
+    /**
+     * return array of attributes to be used to generate form fields 
+     *
+     * @return array
+     */
     public function attributes(): array
     {
         return ['firstname', 'lastname', 'email', 'password'];
     }
 
-	// Form labels
+    /**
+     * return array of form field labels
+     *
+     * @return array
+     */
     public function labels(): array
     {
         return [
@@ -71,7 +96,11 @@ class User extends DbModel
        ];
     }
 
-	// form submission rules
+    /**
+     * return array or form validation rules
+     *
+     * @return array
+     */
     public function rules() : array
     {
         return [
@@ -86,7 +115,14 @@ class User extends DbModel
     }
 
 
-    // we need to hash the user password before we save the user to the database
+    // 
+    /**
+     * save record to database
+     * we need to hash the user password 
+     * before we save the record to the database
+     *
+     * @return boolean
+     */
     public function save(): bool
     {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
@@ -95,24 +131,60 @@ class User extends DbModel
     }
 
     // methods to get attributes    
-    public function getId(): string
+    /** 
+     * return record Id
+     * @return int
+     */
+    public function getId(): int
     {
         return $this->id;
     }
 
-
+    /**
+     * return user display name
+     *
+     * @return string
+     */
     public function getDisplayName(): string
     {
         return $this->firstname . ' ' . $this->lastname;
     }
 
-    public function login()
+    /**
+     * check if user has provided valid login details
+     *
+     * @deprecated 24.03.22
+     * @return bool
+     */
+    public function login() : bool
     {
         $user = User::findOne(['email' => $this->email]);
         if (!$user) {
             $this->addError('email', 'User does not exist with this email address');
             return false;
         }
+        if (!password_verify($this->password, $user->password)) {
+            $this->addError('password', 'Password is incorrect');
+            return false;
+        }
+
+        return true;
+    }
+
+     /**
+     * check if user has provided valid login details
+     * replaces previously used User::login()
+     * 
+     * @return bool
+     */
+    public function loginValid() : bool
+    {
+        $user = User::findOne(['email' => $this->email]);
+        if (!$user) {
+            $this->addError('email', 'User does not exist with this email address');
+            return false;
+        }
+
         if (!password_verify($this->password, $user->password)) {
             $this->addError('password', 'Password is incorrect');
             return false;

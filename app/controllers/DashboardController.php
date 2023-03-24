@@ -1,5 +1,11 @@
 <?php
-/** created by : kingston-5 @ 17/01/23 **/
+
+/**
+ * @category controllers
+ * @author kingston-5 <qhawe@kingston-enterprises.net>
+ * @license For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace kingstonenterprises\app\controllers;
 
@@ -11,13 +17,20 @@ use kingston\icarus\helpers\Collection;
 use kingstonenterprises\app\models\User;
 use kingstonenterprises\app\models\Visitor;
 
-
-/** @class DashboardController: controls the the sites dashboard views
- * @no-named-arguments
+/**
+ * controls the the sites dashboard views
+ *
+ * @extends \kingston\icarus\Controller
  */
 class DashboardController extends Controller
 {
-    public function index(Request $request)
+
+    /**
+     * collect stats and render dashboard
+     * 
+     * @return string
+     */
+    public function index()
     {
 
         if (Application::isGuest()) {
@@ -33,17 +46,22 @@ class DashboardController extends Controller
 
         $user = $userModel->findOne(['id' => Application::$app->session->get('user')]);
         $user->joined = date_create($user->joined)->format("D M j Y");
-// var_dump($user);exit();
-    	// $this->setlayout('auth');
-        return $this->render('dashboard/index', [
-                'title' => 'Dashboard',
-            'visitors' => $visitors->count(),
-                'user' => $user
-        
-        ]);
 
+        return $this->render('dashboard/index', [
+            'title' => 'Dashboard',
+            'visitors' => $visitors->count(),
+            'user' => $user
+
+        ]);
     }
 
+    /**
+     * render user update profile page Or if user submitted form, check 
+     * if user details are valid and update user details
+     *
+     * @param Request $request
+     * @return string
+     */
     public function updateProfile(Request $request)
     {
         if (Application::isGuest()) {
@@ -57,7 +75,7 @@ class DashboardController extends Controller
         if ($request->getMethod() === 'post') {
             $user->loadData($request->getBody());
             $user->password = password_hash($user->password, PASSWORD_DEFAULT);
-            // var_dump($user);exit();
+
             if ($user->validate() && $user->update($user->id)) {
                 Application::$app->session->setFlash('success', 'Your Details have Been Updated');
                 Application::$app->response->redirect('/dashboard');

@@ -1,38 +1,67 @@
 <?php
-/** @author kingston-5 <qhawe@kingston-enterprises.net> **/
+/**
+ * @category models
+ * @author kingston-5 <qhawe@kingston-enterprises.net>
+ * @license For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace kingstonenterprises\app\models;
 
 use kingston\icarus\DbModel;
 use kingston\icarus\Application;
 
-
+/**
+ * User class used to represent unregistered users entities in the system
+ * mainly used to interact with the visitors table in the database
+ * 
+ * @extends \kingston\icarus\DbModel
+ */
 class Visitor extends DbModel
 {
+    /** @var integer id */
     public int $id = 0;
+
+    /** @var string ip */
     public string $ip = '';
+
+    /** @var string date time of visit  */
     public string $datetime = '';
+
+    /** @var string agent */
     public string $agent = '';
 
     public function __construct(){
         $this->setIp();
     }
 
+    /**
+     * @return string
+     */
     public static function tableName(): string
     {
         return 'visitors';
     }
 
+    /**
+     * @return array
+     */
     public function attributes(): array
     {
         return ['ip', 'agent'];
     }
 
+    /**
+     * @return array
+     */
     public function labels(): array
     {
         return [];
     }
 
+    /**
+     * @return array
+     */
     public function rules()
     {
         return [
@@ -41,17 +70,28 @@ class Visitor extends DbModel
             ];
     }
 
-    public function save()
+    /**
+     * @return bool
+     */
+    public function save() : bool
     {
     	return parent::save();
     }
     
+    /**
+     * @return string
+     */
     public function getDisplayName(): string
     {
         return 'visitor #'. $this->id . ' ip:' . $this->ip;
     }
     
-    public function setIP() {
+/**
+ * set visitor IP
+ *
+ * @return void
+ */
+    public function setIP() : void {
 		
         if (!empty($_SERVER['REMOTE_ADDR'])) {
             $ip = $_SERVER['REMOTE_ADDR'];
@@ -72,6 +112,5 @@ class Visitor extends DbModel
             ]);
         }
         
-        return;
 	}
 }

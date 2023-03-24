@@ -1,16 +1,40 @@
 <?php
-/** created by : kingston-5 @ 18/01/23 **/
+/**
+ * @category models
+ * @author kingston-5 <qhawe@kingston-enterprises.net>
+ * @license For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace kingstonenterprises\app\models;
 
 use kingstonenterprises\app\controllers\AuthController;
 use kingston\icarus\Model;
 
+/**
+ * User class used to represent login form
+ * 
+ * @extends \kingston\icarus\DbModel
+ */
 class LoginForm extends Model
 {
+    /** 
+     *  email
+     * @var string
+     */
     public string $email = '';
+
+    /** 
+     *  password
+     * @var string
+     */
     public string $password = '';
 
+    /**
+     * return array or form validation rules
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
@@ -19,6 +43,11 @@ class LoginForm extends Model
         ];
     }
 
+     /**
+     * return array of form field labels
+     *
+     * @return array
+     */
     public function labels()
     {
         return [
@@ -27,7 +56,13 @@ class LoginForm extends Model
         ];
     }
 
-    public function login()
+    /**
+     * check if user has provided valid login details
+     *
+     * @deprecated 24.03.22
+     * @return mixed
+     */
+    public function login() : mixed
     {
         $user = User::findOne(['email' => $this->email]);
         if (!$user) {

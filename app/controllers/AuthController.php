@@ -26,16 +26,16 @@ class AuthController extends Controller
      * if user details are valid and login user
      *
      * @param Request $request
-     * @return string|void
+     * @return string
      */
-    public function login(Request $request)
+    public function login(Request $request) : string
     {
         $user = new User();
         
         if ($request->getMethod() === 'post') {
             $user->loadData($request->getBody());
             
-            if ($user->login()) {
+            if ($user->loginValid()) {
             	$user = $user->findOne(['email' => $request->getBody()['email']]); 
 
             	Application::$app->session->set('user', $user->id);
@@ -52,8 +52,14 @@ class AuthController extends Controller
         
     }
 
-	//if user entered valid details dave them in the Database
-    public function register(Request $request)
+    /**
+     * render user login page Or if user submitted login form, check 
+     * if user details are valid and save them in the Database
+     *
+     * @param Request $request
+     * @return string
+     */
+    public function register(Request $request) : string
     {
     	
         $registerModel = new User();
@@ -73,10 +79,14 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
+    /**
+     * logout User
+     *
+     * @return void
+     */
+    public function logout() : void
     {
         Application::$app->session->remove('user');
-    
         Application::$app->response->redirect('/');
         
     }
