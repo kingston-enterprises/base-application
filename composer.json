@@ -13,7 +13,7 @@
     ],
     "require": {
         "vlucas/phpdotenv": "^5.5",
-        "kingston/icarus": "^v14.03.22"},
+        "kingston/icarus": "^v17.04.23"},
         "config": {
             "preferred-install": {
                 "kingston/icarus": "source"
