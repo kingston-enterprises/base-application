@@ -2,7 +2,6 @@
 
 use kingston\icarus\Application;
 
-// var_dump(Application::$app->session->get('user'));exit();
 ?>
 <title><?php echo $title ?></title>
 

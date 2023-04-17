@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72163473638ac83022bd7a0335fbafba",
+    "content-hash": "688eec016159a9be7292955e43911f7e",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -70,16 +70,16 @@
         },
         {
             "name": "kingston/icarus",
-            "version": "v14.03.22",
+            "version": "v17.04.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kingston-enterprises/icarus-framework.git",
-                "reference": "d659e07ad5a12ab9b66aeae5fce0f3d2e3413b0f"
+                "reference": "faf7d1d1f91c022af8f6d7a8819ff3994eaa46a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kingston-enterprises/icarus-framework/zipball/d659e07ad5a12ab9b66aeae5fce0f3d2e3413b0f",
-                "reference": "d659e07ad5a12ab9b66aeae5fce0f3d2e3413b0f",
+                "url": "https://api.github.com/repos/kingston-enterprises/icarus-framework/zipball/faf7d1d1f91c022af8f6d7a8819ff3994eaa46a8",
+                "reference": "faf7d1d1f91c022af8f6d7a8819ff3994eaa46a8",
                 "shasum": ""
             },
             "require-dev": {
@@ -101,9 +101,9 @@
             "description": "Kingston Enterprises in-house php framework",
             "support": {
                 "issues": "https://github.com/kingston-enterprises/icarus-framework/issues",
-                "source": "https://github.com/kingston-enterprises/icarus-framework/tree/v-14.03.22"
+                "source": "https://github.com/kingston-enterprises/icarus-framework/tree/v17.04.23"
             },
-            "time": "2023-03-14T03:41:38+00:00"
+            "time": "2023-04-16T22:00:17+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -1130,16 +1130,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.6.5",
+            "version": "9.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "86e761949019ae83f49240b2f2123fb5ab3b2fc5"
+                "reference": "c993f0d3b0489ffc42ee2fe0bd645af1538a63b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/86e761949019ae83f49240b2f2123fb5ab3b2fc5",
-                "reference": "86e761949019ae83f49240b2f2123fb5ab3b2fc5",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c993f0d3b0489ffc42ee2fe0bd645af1538a63b2",
+                "reference": "c993f0d3b0489ffc42ee2fe0bd645af1538a63b2",
                 "shasum": ""
             },
             "require": {
@@ -1212,7 +1212,8 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.5"
+                "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.7"
             },
             "funding": [
                 {
@@ -1228,7 +1229,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-09T06:34:10+00:00"
+            "time": "2023-04-14T08:58:40+00:00"
         },
         {
             "name": "sebastian/cli-parser",
