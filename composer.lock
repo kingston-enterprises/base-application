@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "688eec016159a9be7292955e43911f7e",
+    "content-hash": "ec974c19ca3aa376cc4cb2362a9a237f",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -70,16 +70,16 @@
         },
         {
             "name": "kingston/icarus",
-            "version": "v17.04.23",
+            "version": "v19.04.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kingston-enterprises/icarus-framework.git",
-                "reference": "faf7d1d1f91c022af8f6d7a8819ff3994eaa46a8"
+                "reference": "b21b1ce5e6be857123afef42bcae466f787e7892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kingston-enterprises/icarus-framework/zipball/faf7d1d1f91c022af8f6d7a8819ff3994eaa46a8",
-                "reference": "faf7d1d1f91c022af8f6d7a8819ff3994eaa46a8",
+                "url": "https://api.github.com/repos/kingston-enterprises/icarus-framework/zipball/b21b1ce5e6be857123afef42bcae466f787e7892",
+                "reference": "b21b1ce5e6be857123afef42bcae466f787e7892",
                 "shasum": ""
             },
             "require-dev": {
@@ -101,9 +101,9 @@
             "description": "Kingston Enterprises in-house php framework",
             "support": {
                 "issues": "https://github.com/kingston-enterprises/icarus-framework/issues",
-                "source": "https://github.com/kingston-enterprises/icarus-framework/tree/v17.04.23"
+                "source": "https://github.com/kingston-enterprises/icarus-framework/tree/v19.04.23"
             },
-            "time": "2023-04-16T22:00:17+00:00"
+            "time": "2023-04-18T21:30:46+00:00"
         },
         {
             "name": "phpoption/phpoption",
