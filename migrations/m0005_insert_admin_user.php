@@ -22,7 +22,8 @@ class m0005_insert_admin_user {
     public function down()
     {
         $db = kingston\icarus\Application::$app->db;
-        $SQL = "DROP TABLE IF EXISTS users;";
+        $SQL = "DELETE FROM users WHERE `email` = 'admin@localhost.com';";
         $db->pdo->exec($SQL);
     }
 }
+
