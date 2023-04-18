@@ -41,24 +41,25 @@ class User extends DbModel
     public string $joined = '';
 
 
-    // public function __construct()
-    // {
-    //     $this->setAttributes(
-    //         ['firstname', 'lastname', 'email', 'password']
-    //     );
-    //     // form submission rules
-    //     $this->setRules(
-    //         [
-    //             'firstname' => [self::RULE_REQUIRED],
-    //             'lastname' => [self::RULE_REQUIRED],
-    //             'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [
-    //                 self::RULE_UNIQUE, 'class' => self::class
-    //             ]],
-    //             'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
-    //             'passwordConfirm' => [[self::RULE_MATCH, 'match' => 'password']]
-    //         ]
-    //     );
-    // }
+
+    public function __construct()
+    {
+        $this->setAttributes(
+            ['firstname', 'lastname', 'email', 'password']
+        );
+        // form submission rules
+        $this->setRules(
+            [
+                'firstname' => [self::RULE_REQUIRED],
+                'lastname' => [self::RULE_REQUIRED],
+                'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [
+                    self::RULE_UNIQUE, 'class' => self::class
+                ]],
+                'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
+                'passwordConfirm' => [[self::RULE_MATCH, 'match' => 'password']]
+            ]
+        );
+    }
 
     /**
      * return database table name
@@ -75,10 +76,12 @@ class User extends DbModel
      *
      * @return array
      */
-    public function attributes(): array
-    {
-        return ['firstname', 'lastname', 'email', 'password'];
-    }
+    // public function attributes(): array
+    // {
+    //     return ;
+    // }
+
+    // $this->setAttributes($this->attributes)
 
     /**
      * return array of form field labels
