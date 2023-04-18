@@ -1,0 +1,33 @@
+- added user permission
+- added admin permissions
+- added roles and super admin migrations
+- added constructor to User
+- updated icearus to v14.04.23
+- Update composer.json
+- improved Documentation
+- improve documentation
+- updated dashboard UI
+- updated to new icarus starndards
+- switched DbModel fromicarus
+- removed DbModel and message model
+- updated icarus to v14.03.22
+- Update README.md
+- implemented registration and login
+- implemented visitor counter
+- implemented migrations
+- fixed navbar
+- Revert "added nav bar"
+- added nav bar
+- restyled authentication forms
+- added static tailwind css stylesheet
+- remove npm related stylesheets and bloat images
+- refactored home page and site controller
+- updated to v1.3-beta
+- fixed namespaces
+- added welcome home screen
+- Update .env.example
+- Delete .env
+- Create README.md
+- initail commit
+- edited namespace
+- intitial version
