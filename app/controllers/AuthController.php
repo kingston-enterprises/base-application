@@ -13,6 +13,7 @@ use kingston\icarus\Controller;
 use kingston\icarus\Request;
 
 use kingstonenterprises\app\models\User;
+use kingstonenterprises\app\models\Permission;
 
 /**
  * controls the the sites user authorisation functions e.g login, registration and logout
@@ -63,9 +64,18 @@ class AuthController extends Controller
     {
     	
         $registerModel = new User();
+        $permissionModel = new Permission();
+
         if ($request->getMethod() === 'post') {
             $registerModel->loadData($request->getBody());
             if ($registerModel->validate() && $registerModel->save()) {
+                $user = $registerModel->findOne(['email' => $registerModel->email]);
+
+                // Default permissions for normal user
+                $permissionModel->user_id = $user->id;
+                $permissionModel->role_id = 2;
+                $permissionModel->save();
+
                 Application::$app->session->setFlash('success', 'Thanks for registering');
                 Application::$app->response->redirect('/auth/login');
                 return 'Show success page';

@@ -75,18 +75,18 @@ class User extends DbModel
      * return array of attributes to be used to generate form fields 
      *
      * @return array
+     * @deprecated v19.04.23
      */
-    // public function attributes(): array
-    // {
-    //     return ;
-    // }
-
-    // $this->setAttributes($this->attributes)
+    public function attributes(): array
+    {
+        return ['firstname', 'lastname', 'email', 'password'];
+    }
 
     /**
      * return array of form field labels
      *
      * @return array
+     * @deprecated v19.04.23
      */
     public function labels(): array
     {
@@ -103,6 +103,7 @@ class User extends DbModel
      * return array or form validation rules
      *
      * @return array
+     * @deprecated v19.04.23
      */
     public function rules() : array
     {
@@ -117,8 +118,6 @@ class User extends DbModel
         ];
     }
 
-
-    // 
     /**
      * save record to database
      * we need to hash the user password 

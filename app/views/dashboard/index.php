@@ -22,6 +22,7 @@ use kingston\icarus\Application;
 
 						<h2><?php echo $user->email; ?></h2>
 						<h2>since: <?php echo $user->joined; ?></h2>
+						<h2>role: <?php echo $user->role->getDisplayName(); ?></h2>
 
 						<div class="p-3 flex flex-row flex-wrap">
 

@@ -16,6 +16,8 @@ use kingston\icarus\helpers\Collection;
 
 use kingstonenterprises\app\models\User;
 use kingstonenterprises\app\models\Visitor;
+use kingstonenterprises\app\models\Role;
+use kingstonenterprises\app\models\Permission;
 
 /**
  * controls the the sites dashboard views
@@ -38,14 +40,26 @@ class DashboardController extends Controller
             Application::$app->response->redirect('/auth/login');
         }
 
+        if (Application::isGuest()) {
+            Application::$app->session->setFlash('warning', 'You need To Login first');
+            Application::$app->response->redirect('/auth/login');
+        }
+
         $visitorModel = new Visitor;
         $userModel = new User;
+        $roleModel = new Role;
+        $permissionModel = new Permission;
 
         $visitors = new Collection($visitorModel->getAll());
 
 
         $user = $userModel->findOne(['id' => Application::$app->session->get('user')]);
         $user->joined = date_create($user->joined)->format("D M j Y");
+
+        $perm = $permissionModel->findOne(['user_id' => Application::$app->session->get('user')]);
+        $user->role = $roleModel->findOne(['id' => $perm->role_id]);
+
+        // var_dump($user);exit();
 
         return $this->render('dashboard/index', [
             'title' => 'Dashboard',
