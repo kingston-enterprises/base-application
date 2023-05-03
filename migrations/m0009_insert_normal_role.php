@@ -8,7 +8,7 @@ class m0009_insert_normal_role {
             title,
             description
         ) VALUES (
-            'nomarl',
+            'normal',
             'Just a normal user'
             )";
 
