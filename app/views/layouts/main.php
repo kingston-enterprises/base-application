@@ -25,8 +25,8 @@ if (!Application::isGuest()) {
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="m-0 p-5 bg-blue-200">
-	<nav class="m-3 p-3 flex flex-row justify-between text-yellow-400 text-2xl font-bold underline">
+<body class="m-0 p-0 bg-blue-200">
+	<nav class="m-0 p-3 flex flex-row justify-between text-yellow-400 text-2xl font-bold underline">
 		<div>
 			<a href="/">Home</a>
 		</div>
