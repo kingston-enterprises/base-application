@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Insert admin permission 
+ */
 class m0008_insert_admin_permision {
     public function up()
     {
