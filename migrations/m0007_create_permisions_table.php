@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Create permissions table
+ * a permission is a role that has been assigned to a user
+ */
 class m0007_create_permisions_table {
     public function up()
     {

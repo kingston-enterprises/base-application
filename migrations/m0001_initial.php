@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * Initial Database Alterations
+ */
 class m0001_initial {
     public function up()
     {

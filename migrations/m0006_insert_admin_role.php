@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Insert admin role 
+ */
 class m0006_insert_admin_role {
     public function up()
     {

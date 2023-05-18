@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * insert the default role for new users
+ */
 class m0009_insert_normal_role {
     public function up()
     {

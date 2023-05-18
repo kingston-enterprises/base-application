@@ -23,9 +23,10 @@ $config = [
         'dsn' => $_ENV['DB_DSN'],
         'user' => $_ENV['DB_USER'],
         'password' => $_ENV['DB_PASSWORD'],
-    ]
+    ],
+    'migrations' => '../migrations' // new in v17.05.22
 ];
-
+  
 $app = new Application(dirname(__DIR__), $config);
 
 $app->on(Application::EVENT_BEFORE_REQUEST, function () {

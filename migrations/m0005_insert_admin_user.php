@@ -1,6 +1,11 @@
 <?php
 
-class m0005_insert_admin_user {
+/**
+ * Insert admin user - this is the Default user for the sys amdin
+ *      this user will be granted all permissions
+ */
+class m0005_insert_admin_user
+{
     public function up()
     {
         $db = kingston\icarus\Application::$app->db;
@@ -13,7 +18,7 @@ class m0005_insert_admin_user {
             'admin@localhost.com',
             'Super',
             'Admin',
-            '". password_hash("adminpassword", PASSWORD_DEFAULT) ."'
+            '" . password_hash("adminpassword", PASSWORD_DEFAULT) . "'
             )";
 
         $db->pdo->exec($SQL);
@@ -26,4 +31,3 @@ class m0005_insert_admin_user {
         $db->pdo->exec($SQL);
     }
 }
-
