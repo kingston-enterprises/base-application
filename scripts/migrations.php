@@ -20,7 +20,7 @@ $config = [
         'user' => $_ENV['DB_USER'],
         'password' => $_ENV['DB_PASSWORD'],
     ],
-    'migrations' => '../migrations' // new in v17.05.22 f
+    'migrations' => '/../migrations/' // new in v17.05.22 f
 ];
 
 $app = new Application(__DIR__, $config);

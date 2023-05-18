@@ -12,7 +12,7 @@ class m0003_create_users_table {
                 user_email VARCHAR(255) NOT NULL,
                 first_name VARCHAR(255) NOT NULL,
                 last_name VARCHAR(255) NOT NULL,
-                password VARCHAR(512) NOT NULL,
+                user_password VARCHAR(512) NOT NULL,
                 date_joined TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                ) ENGINE=INNODB";
         $db->pdo->exec($SQL);

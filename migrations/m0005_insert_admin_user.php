@@ -10,10 +10,10 @@ class m0005_insert_admin_user
     {
         $db = kingston\icarus\Application::$app->db;
         $SQL = "INSERT INTO users (
-            email,
-            firstname,
-            lastname,
-            password
+            user_email,
+            first_name,
+            last_name,
+            user_password
         ) VALUES (
             'admin@localhost.com',
             'Super',

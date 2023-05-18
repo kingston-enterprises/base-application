@@ -8,8 +8,8 @@ class m0006_insert_admin_role {
     {
         $db = kingston\icarus\Application::$app->db;
         $SQL = "INSERT INTO roles (
-            title,
-            description
+            role_title,
+            role_description
         ) VALUES (
             'admin',
             'Admin users have access to everything'

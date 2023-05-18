@@ -8,8 +8,8 @@ class m0009_insert_normal_role {
     {
         $db = kingston\icarus\Application::$app->db;
         $SQL = "INSERT INTO roles (
-            title,
-            description
+            role_title,
+            role_description
         ) VALUES (
             'normal',
             'Just a normal user'
