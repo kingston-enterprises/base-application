@@ -1,8 +1,7 @@
 # Kingston Enterprises ICarus Framework Base Application
 base icarusapplication template
 
-Icarus was created with the goal of creating a lightweight, user-friendly framework to help accelerate the development of our clients' websites.
-The idea is that we can simply install the tested code for the fundamental features when beginning a new client project and then simply build on that. 
+[Icarus](https://github.com/kingston-enterprises/icarus-framework.git) was created with the goal of creating a simple PHP framework that gives you all the power and flexibility without burying you in a mountain of complex libraries and features that just slow you down.
 
 ### Base Application
 - The base application is our own template for getting started building icarus applications. to get started 
@@ -34,7 +33,7 @@ $ php -S localhost:5050
 ```
 
 - then just open your localhost in your browser and you should see something like this and you will be good to go.
-![Kingston Enterprises Icarus FrameWork Welcome Screen](https://user-images.githubusercontent.com/67066977/218307804-52990155-c354-4704-95f4-d87d526a7f7d.png)
+![Kingston Enterprises Icarus FrameWork Welcome Screen](https://user-images.githubusercontent.com/67066977/239186863-e29c2e0f-08d5-4574-9a0b-d435f43d12e6.png)
 
 ## Dependencies
 - apart from the icarus framework the only dependency is Vlucas` phpdotenv library see their repo [here](https://github.com/vlucas/phpdotenv)
